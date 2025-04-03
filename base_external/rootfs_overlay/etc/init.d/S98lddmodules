@@ -4,10 +4,10 @@ case "$1" in
     start)
         echo "Loading LDD modules"
         # Load scull driver
-        /usr/bin/scull_load
+        cd /usr/bin && ./scull_load
         
         # Load faulty driver
-        /usr/bin/module_load faulty
+        cd /usr/bin && ./module_load faulty
         
         # Load hello module
         modprobe hello
@@ -19,10 +19,10 @@ case "$1" in
         rmmod hello
         
         # Unload faulty driver
-        /usr/bin/module_unload faulty
+        cd /usr/bin && ./module_unload faulty
         
         # Unload scull driver
-        /usr/bin/scull_unload
+        cd /usr/bin && ./scull_unload
         
         ;;
     *)
