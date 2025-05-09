@@ -1,8 +1,13 @@
+#!/bin/bash
+#Script to clean buildroot configuration
+#Author: Your Name
 
-#!/bin/sh
+make -C buildroot distclean
 
-# Navigate to the Buildroot directory
-cd buildroot || { echo "Failed to navigate to buildroot directory"; exit 1; }
+# Clean any external build artifacts
+rm -rf base_external/build/
+rm -rf base_external/target/
+rm -rf rootfs_overlay/
 
-# Run make distclean to clean the Buildroot build directory
-make distclean || { echo "Failed to clean the Buildroot build directory"; exit 1; }
+# Delete any generated configs
+rm -f buildroot/.config
